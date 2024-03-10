@@ -1,11 +1,9 @@
-
-
-const LeaderboardPage = () => {
+function LeaderboardPage (): JSX.Element {
   return (
     <div>
       <p>Leaderboards</p>
     </div>
-  );
-};
+  )
+}
 
-export default LeaderboardPage;
+export default LeaderboardPage
