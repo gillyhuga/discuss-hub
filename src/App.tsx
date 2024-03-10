@@ -1,17 +1,21 @@
-import {Routes, Route} from 'react-router-dom';
-import Home from '../src/pages/Home';
-import Layout from './components/Layout';
-import Leaderboard from './pages/Leaderboard';
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import LoginPage from './pages/Login'
+import HomePage from '../src/pages/Home'
+import LeaderboardPage from './pages/Leaderboard'
+import RegisterPage from './pages/Register'
 
-const App = () => {
+function App (): JSX.Element {
   return (
     <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/leaderboards" element={<Leaderboard />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/leaderboards" element={<LeaderboardPage />} />
       </Route>
     </Routes>
-  );
-};
+  )
+}
 
-export default App;
+export default App

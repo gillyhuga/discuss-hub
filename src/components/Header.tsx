@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
-import {Button,
-  Container,
+import { Link } from 'react-router-dom'
+import {
+  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -10,60 +10,63 @@ import {Button,
   Heading, IconButton,
   Spacer,
   Stack,
-  useDisclosure} from '@chakra-ui/react';
-import {RiDiscussLine,
+  useDisclosure
+} from '@chakra-ui/react'
+import {
+  RiDiscussLine,
   RiTrophyLine,
-  RiAlignJustify} from 'react-icons/ri';
+  RiAlignJustify
+} from 'react-icons/ri'
 
 const navLinks = [
-  {name: 'Threads', to: '/', icon: RiDiscussLine},
-  {name: 'Leaderboards', to: '/leaderboards', icon: RiTrophyLine},
-];
+  { name: 'Threads', to: '/', icon: RiDiscussLine },
+  { name: 'Leaderboards', to: '/leaderboards', icon: RiTrophyLine }
+]
 
-export const Header = () => {
-  const {isOpen, onToggle, onClose} = useDisclosure();
+export function Header (): JSX.Element {
+  const { isOpen, onToggle, onClose } = useDisclosure()
 
-  const toggleDrawer = () => {
-    onToggle();
-  };
+  const toggleDrawer = (): void => {
+    onToggle()
+  }
 
-  const closeDrawer = () => {
-    onClose();
-  };
+  const closeDrawer = (): void => {
+    onClose()
+  }
 
   return (
-    <Container maxW={['full', 'container.lg']} p={0}>
-      <Stack justify="space-between" p={4} w="full" direction={['row']}>
+    <>
+      <Stack justify="space-between" py={4} w="full" direction={['row']}>
         <Heading fontSize="xl">DiscusHub</Heading>
         <Spacer />
         <IconButton
           aria-label="Toggle Navigation"
-          icon={<RiAlignJustify style={{display: 'block', margin: 'auto'}} />}
+          icon={<RiAlignJustify style={{ display: 'block', margin: 'auto' }} />}
           display={['block', 'none']}
           onClick={toggleDrawer}
         />
         <Stack
           align="center"
           spacing={[4]}
-          direction={'row'}
+          direction="row"
           display={['none', 'flex']}
         >
           {navLinks.map((navLink, i) => (
             <Link
               key={i}
               to={navLink.to}
-              style={{display: 'flex', alignItems: 'center'}}
+              style={{ display: 'flex', alignItems: 'center' }}
             >
-              {<navLink.icon style={{margin: '0 6px'}} />}
+              <navLink.icon style={{ margin: '0 6px' }} />
               {navLink.name}
             </Link>
           ))}
           <Spacer />
-          <Button colorScheme='teal' variant='outline' size='sm'>
-            Login
+          <Button colorScheme="teal" variant="outline" size="sm">
+            <Link to="/login">Login</Link>
           </Button>
-          <Button colorScheme='teal' size='sm'>
-            Register
+          <Button colorScheme="teal" size="sm">
+            <Link to="/register">Register</Link>
           </Button>
         </Stack>
       </Stack>
@@ -78,22 +81,22 @@ export const Header = () => {
                 <Link
                   key={i}
                   to={navLink.to}
-                  style={{display: 'flex', alignItems: 'center'}}
+                  style={{ display: 'flex', alignItems: 'center' }}
                 >
-                  {<navLink.icon style={{margin: '0 6px'}} />}
+                  <navLink.icon style={{ margin: '0 6px' }} />
                   {navLink.name}
                 </Link>
               ))}
-              <Button colorScheme='teal' variant='outline' size='sm'>
-                Login
+              <Button colorScheme="teal" variant="outline" size="sm">
+                <Link to="/login">Login</Link>
               </Button>
-              <Button colorScheme='teal' size='sm'>
-                Register
+              <Button colorScheme="teal" size="sm">
+                <Link to="/register">Register</Link>
               </Button>
             </Stack>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </Container>
-  );
-};
+    </>
+  )
+}

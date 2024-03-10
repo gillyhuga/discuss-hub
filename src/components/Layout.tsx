@@ -1,13 +1,14 @@
-import {Outlet} from 'react-router-dom';
-import {Header} from './Header';
+import { Outlet } from 'react-router-dom'
+import { Container } from '@chakra-ui/react'
+import { Header } from './Header'
 
-const Layout = () => {
+function Layout (): JSX.Element {
   return (
-    <>
+    <Container maxW={['full', 'container.lg']} px={4}>
       <Header />
       <Outlet />
-    </>
-  );
-};
+    </Container>
+  )
+}
 
-export default Layout;
+export default Layout
