@@ -27,7 +27,7 @@ import {
   RiChat4Line,
   RiShareFill
 } from 'react-icons/ri'
-import { formatDate } from '../utils/date-format'
+import { formatDate } from '@/utils/date-format'
 import { useState } from 'react'
 
 function HomePage (): JSX.Element {

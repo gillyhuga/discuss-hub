@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
-import LoginPage from './pages/Login'
-import HomePage from '../src/pages/Home'
-import LeaderboardPage from './pages/Leaderboard'
-import RegisterPage from './pages/Register'
+import Layout from '@/components/Layout'
+import LoginPage from '@/pages/Login'
+import HomePage from '@/pages/Home'
+import LeaderboardPage from '@/pages/Leaderboard'
+import RegisterPage from '@/pages/Register'
 
 function App (): JSX.Element {
   return (
