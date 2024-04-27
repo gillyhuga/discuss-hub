@@ -3,8 +3,8 @@ import toast from 'react-hot-toast';
 import {authApi, usersApi} from '@/lib/api';
 
 export const AUTH_ACTION_TYPE = {
-  SET_AUTH: 'SET_AUTH',
-  UNSET_AUTH: 'UNSET_AUTH',
+  SET_AUTH: 'auth/set',
+  UNSET_AUTH: 'auth/clear',
 };
 
 export function setAuthAction(auth) {
@@ -23,16 +23,15 @@ export function unsetAuthAction() {
 }
 
 export const authThunks = {
-  asyncSetAuth(user, callback) {
-    return (dispatch) => {
+  asyncSetAuth(user) {
+    return async (dispatch) => {
       dispatch(showLoading());
-      authApi.login(user)
-          .then((accessToken) => {
+      await authApi.login(user)
+          .then(async (accessToken) => {
             localStorage.setItem('accessToken', accessToken);
-            usersApi.getProfile().then((res) => {
+            await usersApi.getProfile().then((res) => {
               dispatch(setAuthAction(res.data.user));
               toast.success('Successfully login!');
-              callback(res);
             });
           }).catch((error) => {
             toast.error(error.message);

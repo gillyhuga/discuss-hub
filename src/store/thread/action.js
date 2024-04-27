@@ -3,13 +3,13 @@ import {toast} from 'react-hot-toast';
 import {threadsApi} from '@/lib/api';
 
 export const THREAD_ACTION_TYPE = {
-  GET_THREAD: 'GET_THREAD',
-  UNSET_THREAD: 'UNSET_THREAD',
-  UP_VOTE_THREAD: 'UP_VOTE_THREAD',
-  DOWN_VOTE_THREAD: 'DOWN_VOTE_THREAD',
-  CREATE_COMMENT: 'CREATE_COMMENT',
-  UP_VOTE_COMMENT: 'UP_VOTE_COMMENT',
-  DOWN_VOTE_COMMENT: 'DOWN_VOTE_COMMENT',
+  GET_THREAD: 'thread/set',
+  UNSET_THREAD: 'thread/unset',
+  UP_VOTE_THREAD: 'thread/up-vote',
+  DOWN_VOTE_THREAD: 'thread/down-vote',
+  CREATE_COMMENT: 'comment/create',
+  UP_VOTE_COMMENT: 'comment/up-vote',
+  DOWN_VOTE_COMMENT: 'commnet/down-vote',
 };
 
 export function getThreadAction(thread) {

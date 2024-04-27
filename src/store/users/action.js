@@ -1,5 +1,5 @@
 export const USERS_ACTION_TYPE = {
-  GET_USERS: 'GET_USERS',
+  GET_USERS: 'users/set',
 };
 
 export function getUsersAction(users) {

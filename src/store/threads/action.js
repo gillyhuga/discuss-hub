@@ -3,11 +3,11 @@ import toast from 'react-hot-toast';
 import {threadsApi} from '@/lib/api';
 
 export const THREADS_ACTION_TYPE = {
-  CREATE_THREAD: 'CREATE_THREAD',
-  GET_ALL_THREAD: 'GET_ALL_THREAD',
-  UP_VOTE_THREADS: 'UP_VOTE_THREADS',
-  NEUTRAL_VOTE_THREADS: 'NEUTRAL_VOTE_THREADS',
-  DOWN_VOTE_THREADS: 'DOWN_VOTE_THREADS',
+  CREATE_THREAD: 'thread/create',
+  GET_ALL_THREAD: 'threads/set',
+  UP_VOTE_THREADS: 'threads/up-vote',
+  NEUTRAL_VOTE_THREADS: 'threads/neutral-vote',
+  DOWN_VOTE_THREADS: 'threads/down-vote',
 };
 
 export function getAllThreadAction(threads) {
@@ -50,7 +50,7 @@ function downVoteThreadAction({threadId, userId}) {
 
 export const threadsThunks = {
   asyncCreateThread(thread) {
-    return (dispatch) => {
+    return async (dispatch) => {
       threadsApi.createThread(thread)
           .then((thread) => {
             dispatch(createThreadAction(thread));
@@ -88,7 +88,7 @@ export const threadsThunks = {
   },
 
   asyncDownVoteThread(threadId) {
-    return (dispatch, getState) => {
+    return async (dispatch, getState) => {
       dispatch(showLoading());
 
       const {threads, auth} = getState();

@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import {leaderboardsApi} from '@/lib/api';
 
 export const LEADERBOARDS_ACTION_TYPE = {
-  GET_LEADERBOARDS: 'GET_LEADERBOARDS',
+  GET_LEADERBOARDS: 'leaderboard/set',
 };
 
 export function getLeaderboardAction(leaderboards) {
@@ -19,7 +19,7 @@ export const leaderboardThunks = {
   asyncGetLeaderboards() {
     return async (dispatch) => {
       dispatch(showLoading());
-      leaderboardsApi.getLeaderboards()
+      await leaderboardsApi.getLeaderboards()
           .then((leaderboards) => {
             dispatch(getLeaderboardAction(leaderboards));
             dispatch(hideLoading());

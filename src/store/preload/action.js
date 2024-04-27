@@ -1,9 +1,10 @@
 import {hideLoading, showLoading} from 'react-redux-loading-bar';
 import {usersApi} from '@/lib/api';
 import {setAuthAction} from '@/store/auth/action';
+import toast from 'react-hot-toast';
 
 export const PRELEOAD_ACTION_TYPE = {
-  SET_PRELOAD: 'SET_PRELOAD',
+  SET_PRELOAD: 'preload/set',
 };
 
 export function setPreloadAction(preload) {
@@ -24,16 +25,20 @@ export function asyncPreloadProcess() {
           .then((res) => {
             if (res.status === 'success') {
               dispatch(setAuthAction(res.data.user));
-              dispatch(hideLoading());
             } else {
               dispatch(setAuthAction(null));
-              dispatch(hideLoading());
             }
           })
+          .catch((error) => {
+            toast.error('Failed to fetch profile:', error);
+            dispatch(setAuthAction(null));
+          })
           .finally(() => {
+            dispatch(hideLoading());
             dispatch(setPreloadAction(false));
           });
+    } else {
+      dispatch(hideLoading());
     }
-    dispatch(hideLoading());
   };
 }
