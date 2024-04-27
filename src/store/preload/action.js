@@ -3,13 +3,13 @@ import {usersApi} from '@/lib/api';
 import {setAuthAction} from '@/store/auth/action';
 import toast from 'react-hot-toast';
 
-export const PRELEOAD_ACTION_TYPE = {
+export const PRELOAD_ACTION_TYPE = {
   SET_PRELOAD: 'preload/set',
 };
 
 export function setPreloadAction(preload) {
   return {
-    type: PRELEOAD_ACTION_TYPE.SET_PRELOAD,
+    type: PRELOAD_ACTION_TYPE.SET_PRELOAD,
     payload: {
       preload,
     },
