@@ -12,7 +12,7 @@ function RegisterPage() {
   const preload = useSelector((state) => state.preload);
 
   useEffect(() => {
-    if (preload === false && auth !== null) {
+    if (preload === true && auth !== null) {
       navigate('/');
     }
   }, [preload, auth, navigate]);

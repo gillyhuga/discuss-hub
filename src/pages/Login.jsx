@@ -12,27 +12,17 @@ function LoginPage() {
   const preload = useSelector((states) => states.preload);
 
   useEffect(() => {
-    if (preload === false && auth !== null) {
+    if (preload === true && auth !== null) {
       navigate('/');
     }
   }, [preload, auth, navigate]);
 
-  const handleLogin = async (formData) => {
-    dispatch(
-        authThunks.asyncSetAuth(formData, (res) => {
-          if (res.status === 'success') {
-            navigate('/');
-          }
-        }),
-    );
+  const handleLogin = (formData) => {
+    dispatch(authThunks.asyncSetAuth(formData));
   };
 
   return (
-    <Flex
-      minH='100vh'
-      align='center'
-      justify='center'
-    >
+    <Flex minH="100vh" align="center" justify="center">
       <LoginForm onLogin={handleLogin} />
     </Flex>
   );
