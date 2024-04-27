@@ -34,7 +34,7 @@ function CommentForm({onSubmit, auth}) {
       ) : (
         <Box bg="gray.100" p={4} borderRadius="md" textAlign="center">
           <Text fontSize="lg">
-            Please
+            Please{' '}
             <Link as={RouterLink} to="/login" color="teal.500">
               log in
             </Link>{' '}
