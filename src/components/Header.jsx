@@ -23,7 +23,7 @@ const navLinks = [
   {name: 'Leaderboards', to: '/leaderboards', icon: RiTrophyLine},
 ];
 
-export function Header() {
+function Header() {
   const {isOpen, onToggle, onClose} = useDisclosure();
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -154,3 +154,5 @@ export function Header() {
     </>
   );
 }
+
+export default Header;
