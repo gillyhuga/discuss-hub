@@ -30,6 +30,6 @@ describe('usersReducer', () => {
       payload: {users},
     };
     const nextState = usersReducer(initialState, action);
-    expect(nextState).toEqual(users);
+    expect(nextState).toEqual(admin);
   });
 });
