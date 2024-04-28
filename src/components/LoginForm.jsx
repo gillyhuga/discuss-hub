@@ -47,7 +47,6 @@ function LoginForm({onLogin}) {
             <FormLabel>Email address</FormLabel>
             <Input
               type="email"
-              required
               value={email}
               onChange={handleEmailChange}
             />
@@ -56,7 +55,6 @@ function LoginForm({onLogin}) {
             <FormLabel>Password</FormLabel>
             <Input
               type="password"
-              required
               value={password}
               onChange={handlePasswordChange}
             />

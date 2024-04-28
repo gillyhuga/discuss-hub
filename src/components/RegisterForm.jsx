@@ -53,7 +53,6 @@ function RegisterForm({onRegister}) {
             <FormLabel>Name</FormLabel>
             <Input
               type="text"
-              required
               value={name}
               onChange={handleNameChange}
             />
@@ -62,7 +61,6 @@ function RegisterForm({onRegister}) {
             <FormLabel>Email address</FormLabel>
             <Input
               type="email"
-              required
               value={email}
               onChange={handleEmailChange}
             />
@@ -71,7 +69,6 @@ function RegisterForm({onRegister}) {
             <FormLabel>Password</FormLabel>
             <Input
               type="password"
-              required
               value={password}
               onChange={handlePasswordChange}
             />
