@@ -1,7 +1,7 @@
 import {Outlet} from 'react-router-dom';
 import {Container} from '@chakra-ui/react';
 import {Toaster} from 'react-hot-toast';
-import {Header} from './Header';
+import Header from './Header';
 import LoadingBar from './LoadingBar';
 
 function Layout() {
